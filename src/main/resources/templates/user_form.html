@@ -14,10 +14,12 @@
 
     <div class="container">
         <div class="row">
-            <label for="inputName">First name:</label> <input id="inputName" type="text" th:field="*{name}"><br/>
+            <label for="inputName">First name:</label> <input id="inputName" type="text" th:field="*{firstName}"><br/>
             <label for="inputLast">Last name:</label> <input id="inputLast" type="text" th:field="*{lastName}"><br/>
 
-            <button type="button" class="btn btn-primary">Submit</button>
+            <input type="submit">
+
+            <!--            <button type="button" class="btn btn-primary">Submit</button>-->
         </div>
     </div>
 </form>

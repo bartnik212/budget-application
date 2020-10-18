@@ -22,8 +22,10 @@ public class Budget {
     @Enumerated(value = EnumType.STRING)
     private BudgetCategory budgetCategory;
 
+    private Long value;
+
     @CreationTimestamp
-    private LocalDateTime localDateTime;
+    private LocalDateTime dateTimeCreated;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude

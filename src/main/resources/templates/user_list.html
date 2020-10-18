@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <div th:replace="pagefragments :: header_styles"/>
+</head>
+<body>
+<h1>User List:</h1>
+<div class="table">
+    <div class="header-row">
+        <div class="header-cell">
+            Id
+        </div>
+        <div class="header-cell">
+            First name
+        </div>
+        <div class="header-cell">
+            Last name
+        </div>
+
+    </div>
+    <div class="user-row" th:each="user : ${users}">
+        <div class="student-cell" th:text="${user.id}">
+        </div>
+        <div class="student-cell" th:text="${user.firstName}">
+        </div>
+        <div class="student-cell" th:text="${user.lastName}">
+        </div>
+
+        <div class="user-cell actions-cell">
+            <!--Poniżej jest @PathVariable-->
+            <a th:href="@{'/user/details/'+${user.id}}">Details</a>
+
+            <!--Poniżej jest @RequestParam-->
+            <a th:href="@{/user/delete(userId=${user.id})}">Delete</a>
+        </div>
+    </div>
+</div>
+<div th:replace="pagefragments :: footer_scripts"/>
+</body>
+</html>

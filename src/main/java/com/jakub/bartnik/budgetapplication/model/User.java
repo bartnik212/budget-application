@@ -2,10 +2,10 @@ package com.jakub.bartnik.budgetapplication.model;
 
 import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.Cascade;
+
+import java.util.Set;
 
 @Entity
 @Data
@@ -18,8 +18,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String firstName;
     private String lastName;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Cascade(value = org.hibernate.annotations.CascadeType.REMOVE)
+    @EqualsAndHashCode.Exclude
+    private Set<Budget> budgets;
 
 
 }
